@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UI Milestone – Sonny</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      font-family: Arial, sans-serif;
+      background: #2d3436;
+      color: #f1f1f1;
+    }
+
+    h1, h2 {
+      margin: 0 0 10px;
+      font-weight: bold;
+    }
+
+    h1 { font-size: 28px; color: #fd79a8; }
+    h2 { font-size: 20px; color: #ffeaa7; }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: #3a3f41;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    section p, section li { line-height: 1.5; }
+
+    .tag {
+      display: inline-block;
+      background: #fd79a8;
+      color: #2d3436;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 6px;
+    }
+
+    a { color: #8be9fd; }
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #fd79a8;
+      color: #2d3436;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .button:hover {
+      background: #ffeaa7;
+      color: #2d3436;
+    }
+
+    form label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+      color: #ffeaa7;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #fd79a8;
+      color: #2d3436;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: #ffeaa7;
+      color: #2d3436;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <header style="margin-bottom:30px;">
+      <h1>UI Milestone</h1>
+      <p><strong> Interface Design and Development</strong><br>
+      Hamish Foy | ID: S4109866</p>
+    </header>
+
+    <section>
+      <h2>Live Prototype</h2>
+      <p><a href="#" target="_blank" class="button">Open Prototype</a></p>
+    </section>
+ 
+    <section>
+      <h2>Conceptual Response</h2>
+      <span class="tag">Prompt: Novel Input</span>
+      <span class="tag">Technique: Location</span>
+      <p>This project is an audio-visualiser controlled by place and gesture.
+         Latitude determines bright vs dark mood (colour and synth timbre), longitude sets tempo,
+         and user drag across the screen bends pitch (X) and rhythmic density (Y).</p>
+         
+      </p> This avoids traditional sliders or menus within the UI in pursuit of embodied, environmental interaction.</p>
+      <p><strong>Design references:</strong><br>
+         – <a href="http://www.patatap.com" target="_blank">Patatap</a><br>
+         – <a href="https://www.newrafael.com/" target="_blank">Rafael Rozendaal</a></p>
+    </section>
+
+    <section>
+      <h2>Visual Plan / Sketch</h2>
+      <p>(Insert your sketch image or wireframe here)</p>
+    </section>
+
+    <section>
+      <h2>Technical Approach</h2>
+      <p>Advanced method: <code>navigator.geolocation.getCurrentPosition</code>.</p>
+      <p><strong>System map:</strong><br>
+         Tap → unlocks audio + location → Latitude → mode (bright/dark) → Longitude → tempo (BPM) → Drag X → pitch detune → Drag Y → note density → Tone.js (Synth + Kick) → Canvas circle pulses with kick.</p>
+    </section>
+
+
+    <section>
+      <h2>Peer Feedback Form</h2>
+      <form action="https://formspree.io/f/xkgvelne" method="POST">
+        <label for="clarity">1. Was it clear how dragging on the screen changed the sound/visuals?</label>
+        <textarea id="clarity" name="clarity" rows="2" required></textarea>
+
+
+        <label for="overall">2. Did the interaction feel engaging, or too minimal? Any suggestions?</label>
+        <textarea id="overall" name="overall" rows="3" required></textarea>
+
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Attributions</h2>
+      <ul>
+        <li>Tone.js — <a href="https://tonejs.github.io/" target="_blank">https://tonejs.github.io/</a></li>
+        <li>MDN Web Docs — <a href="https://developer.mozilla.org/" target="_blank">https://developer.mozilla.org/</a></li>
+      </ul>
+    </section>
+  </main>
+
+</body>
+</html>
