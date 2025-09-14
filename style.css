@@ -1,185 +1,31 @@
-:root{
-  /* High-contrast palette (no orange) */
-  --bg:#0b0c10;        /* page background (near-black) */
-  --card:#15161b;      /* card surface */
-  --ink:#f8f9fb;       /* primary text (near-white) */
-  --muted:#b5bbc6;     /* secondary text */
-
-  --primary:#4f9cff;   /* electric blue accent */
-  --secondary:#8a7dff; /* indigo accent */
-  --success:#59d3b4;   /* teal-green for positive chips */
-  --warning:#ffd166;   /* soft gold for caution/info (no orange) */
-
-  --border:rgba(255,255,255,0.12);
-  --rule:rgba(255,255,255,0.22);
-  --shadow:0 18px 48px rgba(0,0,0,0.5);
-  --radius:14px;
-
-  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
-  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-
-  --focus:0 0 0 3px rgba(79,156,255,0.45); /* focus ring */
+.sketch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 24px;
+  margin-top: 16px;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:var(--font);
-  color:var(--ink);
-  background:var(--bg);
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+.sketch-grid > div {
+  background: #2d2d2d;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+  text-align: center;
 }
 
-.wrap{width:min(980px,92vw); margin-inline:auto}
 
-/* HEADER */
-.site-header{
-  position:sticky; top:0; z-index:20;
-  background:linear-gradient(to bottom, rgba(11,12,16,0.95), rgba(11,12,16,0.75) 60%, rgba(11,12,16,0));
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--border);
-}
-.site-header .wrap{padding:30px 0 22px}
-.site-header h1{
-  margin:0 0 6px;
-  font-size:clamp(26px,3.6vw,38px);
-  color:var(--primary);
-  letter-spacing:0.2px;
-}
-.site-header h2{
-  margin:0;
-  color:var(--ink);
-  opacity:0.9;
-  font-weight:600;
-  font-size:clamp(15px,1.8vw,18px);
-}
-.student{margin:6px 0 0; color:var(--muted); font-size:0.95rem}
-
-/* MAIN */
-main.wrap{padding:28px 0 84px; display:grid; gap:24px}
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:24px clamp(16px,3vw,30px);
-  box-shadow:var(--shadow);
+.sketch-grid img {
+  width: 100%;
+  max-height: 340px;         /* stop the “massive white canvas” look */
+  object-fit: contain;       /* show whole sketch inside the box */
+  background: #1f1f1f;       /* nice edge for transparent PNGs */
+  border: 2px solid #555;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto 8px;
 }
 
-h3{
-  margin:0 0 12px;
-  font-size:clamp(19px,2.4vw,26px);
-  font-weight:800;
-  letter-spacing:0.2px;
-  color:var(--ink);
-}
-h4{
-  margin:20px 0 8px;
-  font-size:1.06rem;
-  color:var(--muted);
-  font-weight:700;
-}
-
-/* Section accent underlines */
-.rule{
-  height:2px;
-  background:linear-gradient(90deg, var(--primary), transparent 60%);
-  border-bottom:1px solid var(--rule);
-  margin:6px 0 16px;
-}
-
-/* Lists & labels */
-.bullets, .refs, .credits, .steps{margin:10px 0 0 18px}
-.bullets li, .refs li, .credits li, .steps li{margin:7px 0}
-.numbered{margin:10px 0 12px 20px}
-
-.kv{
-  list-style:none; padding:0; margin:0;
-  display:grid; gap:10px; grid-template-columns:1fr;
-}
-.kv li{display:flex; gap:12px; align-items:baseline}
-
-.tag{
-  display:inline-block; padding:4px 12px; border-radius:999px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid var(--border);
-  font-weight:600; font-size:0.92rem; color:var(--ink)
-}
-.tag-muted{opacity:0.8}
-
-/* Chips: high readability, solid borders */
-.chip{
-  display:inline-block; padding:4px 10px; border-radius:9px;
-  font-weight:700; font-size:0.88rem; letter-spacing:0.2px
-}
-.chip-accent{background:rgba(79,156,255,0.16); border:1px solid rgba(79,156,255,0.55); color:#e9f1ff}
-.chip-teal{background:rgba(89,211,180,0.16); border:1px solid rgba(89,211,180,0.55); color:#e7fff7}
-.chip-indigo{background:rgba(138,125,255,0.18); border:1px solid rgba(138,125,255,0.55); color:#f0efff}
-.chip-gold{background:rgba(255,209,102,0.18); border:1px solid rgba(255,209,102,0.55); color:#fff8e2}
-
-/* Links */
-a{color:var(--primary); text-decoration:none}
-a:hover{color:#b5d4ff; text-decoration:underline}
-
-/* System map block */
-.system-map{
-  margin-top:14px; border:1px dashed var(--rule);
-  border-radius:12px; padding:12px; background:rgba(255,255,255,0.03)
-}
-.system-map pre{
-  margin:0; font-family:var(--mono); font-size:0.96rem; color:#e7ebf3; white-space:pre-wrap
-}
-
-/* Micro copy */
-.micro{color:var(--muted); font-size:0.94rem}
-
-/* Button */
-.btn{
-  display:inline-block; font-weight:800; text-decoration:none; color:#0a0b0f;
-  background:var(--primary); border:1px solid #2e84ff; padding:12px 16px; border-radius:12px;
-  box-shadow:0 10px 26px rgba(79,156,255,0.35);
-  transition:transform .12s ease, box-shadow .12s ease;
-}
-.btn:hover{transform:translateY(-1px); box-shadow:0 14px 30px rgba(79,156,255,0.42)}
-.btn:focus{outline:none; box-shadow:var(--focus)}
-
-/* Footer */
-.site-footer{
-  border-top:1px solid var(--border);
-  background:#101218;
-}
-.site-footer .wrap{
-  padding:18px 0; display:flex; justify-content:space-between; align-items:center; gap:10px
-}
-.top{color:var(--primary); text-decoration:none; border-bottom:1px dotted rgba(255,255,255,0.35)}
-.top:hover{border-bottom-color:var(--primary)}
-.top:focus{outline:none; box-shadow:var(--focus)}
-
-/* Media grid */
-.media-grid{
-  display:grid; gap:14px; margin-top:12px;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-}
-.media-grid figure{
-  margin:0; background:#0f1116; border:1px solid var(--border);
-  border-radius:12px; overflow:hidden;
-}
-.media-grid img{display:block; width:100%; height:auto}
-.media-grid figcaption{
-  padding:8px 10px; color:var(--muted); font-size:0.92rem; border-top:1px solid var(--border)
-}
-
-/* Focusable elements accessibility */
-a, button, .btn, summary, details{outline-offset:2px}
-:focus-visible{outline:none; box-shadow:var(--focus)}
-
-/* Print */
-@media print{
-  body{background:#fff; color:#111}
-  .site-header,.site-footer{display:none}
-  .card{box-shadow:none; border:1px solid #000; background:#fff}
-  .rule{background:#000}
-  a{color:#000; text-decoration:underline}
+.caption {
+  font-size: 14px;
+  color: #cfcfcf;
 }
