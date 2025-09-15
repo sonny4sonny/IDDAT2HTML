@@ -157,19 +157,97 @@
     <section>
       <h2>Technical Approach</h2>
       <p>Advanced method: <code>navigator.geolocation.getCurrentPosition</code>.</p>
-      <p><strong>System map:</strong><br>
-         Tap → unlocks audio + location → Latitude → mode (bright/dark) → Longitude → tempo (BPM) → Drag X → pitch detune → Drag Y → note density → Tone.js (Synth + Kick) → Circle pulses with kick.</p>
+
+<svg viewBox="0 0 1120 520" width="100%" role="img" aria-label="System map: Location to Mode & Tempo; Drag to Pitch & Density; Engine to Visual and Sound">
+  <style>
+    .bg { fill:#3a3f41; }
+    .box { fill:#2d3436; stroke:#555; stroke-width:2; rx:14; }
+    .small { fill:#2d3436; stroke:#555; stroke-width:2; rx:10; }
+    .title { font: 700 18px Arial, sans-serif; fill:#ffeaa7; }
+    .label { font: 600 16px Arial, sans-serif; fill:#f1f1f1; }
+    .meta  { font: 500 14px Arial, sans-serif; fill:#cfcfcf; }
+    .tag   { fill:#fd79a8; }
+    .tagTxt{ font: 700 13px Arial, sans-serif; fill:#2d3436; }
+    .arrow { stroke:#8be9fd; stroke-width:3; marker-end:url(#arrowHead); fill:none; }
+  </style>
+
+  <defs>
+    <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8be9fd"></path>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1120" height="520" rx="18"></rect>
+
+  <text class="title" x="90"  y="50">INPUT</text>
+  <text class="title" x="430" y="50">MAPPING</text>
+  <text class="title" x="760" y="50">ENGINE</text>
+  <text class="title" x="940" y="50">OUTPUT</text>
+
+  <rect class="small" x="60" y="80" width="220" height="70"></rect>
+  <text class="label" x="86" y="122">Tap to Start (audio + locate)</text>
+
+  <rect class="box" x="60" y="170" width="220" height="120"></rect>
+  <text class="label" x="86" y="205">Geolocation</text>
+  <text class="meta"  x="86" y="232">navigator.geolocation</text>
+
+  <rect class="tag" x="230" y="182" width="40" height="18" rx="4"></rect>
+  <text class="tagTxt" x="235" y="195">API</text>
+
+  <rect class="box" x="60" y="310" width="220" height="140"></rect>
+  <text class="label" x="86" y="345">Drag on Canvas</text>
+  <text class="meta"  x="86" y="372">X → position</text>
+  <text class="meta"  x="86" y="394">Y → position</text>
+
+  <rect class="box" x="320" y="170" width="280" height="120"></rect>
+  <text class="label" x="346" y="205">Location Mapping</text>
+  <text class="meta"  x="346" y="232">Latitude → Mode (bright/dark)</text>
+  <text class="meta"  x="346" y="254">Longitude → Tempo (BPM, snapped)</text>
+
+  <rect class="box" x="320" y="310" width="280" height="140"></rect>
+  <text class="label" x="346" y="345">Gesture Mapping</text>
+  <text class="meta"  x="346" y="372">X → Scale index (major/minor)</text>
+  <text class="meta"  x="346" y="394">Y → Note density (probability)</text>
+
+  <rect class="box" x="620" y="220" width="240" height="160"></rect>
+  <text class="label" x="646" y="255">Tone.js </text>
+  <text class="meta"  x="646" y="282">Synth (triangle/sine by latitude)</text>
+  <text class="meta"  x="646" y="304">Kick (half-notes)</text>
+  <text class="meta"  x="646" y="326">Melody Loop (8th notes)</text>
+
+ 
+  <rect class="box" x="890" y="170" width="200" height="100"></rect>
+  <text class="label" x="906" y="205">Visual</text>
+  <text class="meta"  x="906" y="232">Circle pulse + HUD</text>
+
+  <rect class="box" x="890" y="300" width="200" height="100"></rect>
+  <text class="label" x="906" y="335">Sound</text>
+  <text class="meta"  x="906" y="362">Mode, Tempo, Pitch, Density</text>
+
+  <path class="arrow" d="M280,115 L320,115 L320,230"></path>
+  <path class="arrow" d="M280,115 L300,115 L300,380 L320,380"></path>
+
+  <path class="arrow" d="M280,230 L320,230"></path>
+
+  <path class="arrow" d="M280,380 L320,380"></path>
+
+  <path class="arrow" d="M600,230 L620,230"></path>
+  <path class="arrow" d="M600,380 L620,380"></path>
+
+  <path class="arrow" d="M860,260 L890,220"></path>
+  <path class="arrow" d="M860,340 L890,350"></path>
+</svg>
     </section>
 
 
     <section>
       <h2>Peer Feedback Form</h2>
       <form action="https://formspree.io/f/xkgvelne" method="POST">
-        <label for="clarity">1. Was it clear how dragging on the screen changed the sound/visuals?</label>
+        <label for="clarity">1.Was the connection between location data (mode/tempo) and the output clear during use?</label>
         <textarea id="clarity" name="clarity" rows="2" required></textarea>
 
 
-        <label for="overall">2. Did the interaction feel engaging, or too minimal? Any suggestions?</label>
+        <label for="overall">2. Did the combination of sound and visuals feel engaging, or would you suggest additional features or changes?</label>
         <textarea id="overall" name="overall" rows="3" required></textarea>
 
         <button type="submit">Submit Feedback</button>
