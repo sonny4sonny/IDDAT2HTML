@@ -114,15 +114,64 @@
     </section>
  
     <section>
-      <h2>Conceptual Response</h2>
-      <span class="tag">Prompt: Novel Input</span>
-      <span class="tag">Technique: Location</span>
-      <p>This project is an audio-visualiser controlled by location and user input. </p>
+  <h2>Conceptual Response</h2>
+  <span class="tag">Prompt: Novel Input</span>
+  <span class="tag">Technique: Location</span>
 
-    </p> Latitude determines mood (bright or dark), which shifts both colour and synth mood, while longitude sets tempo with a displayed BPM. A persistent melody loop and kick form the core sound engine. User drag across the screen refines this output, with horizontal motion selecting notes from a scale, while vertical motion controls note density.</p>
-         
-      </p> This avoids traditional sliders or menus within the UI in pursuit of intuitive interaction.</p>
-      <p><strong>Design references:</strong><br>
+  <p>
+    This project is an audio-visualiser controlled by location and user input.
+    Day/night data from the Open-Meteo API determines mood (light or dark),
+    changing both UI colour and synth timbre, while longitude sets tempo with a
+    displayed BPM. A persistent synth loop and pulsing kick form the core sound.
+    User drag across the screen refines this output: horizontal drag selects
+    notes from a scale, while vertical drag controls note density.
+  </p>
+
+  <p>
+    This avoids traditional sliders or menus within the UI in pursuit of
+    intuitive, natural interaction. The project demonstrates how
+    environmental data (location and time) and gesture can shape audiovisual
+    feedback without relying on 'conventional' controls.
+  </p>
+
+  <h3>Information Architecture</h3>
+  <p>
+    The interface is deliberately minimal: a full-screen non-scrollable canvas, a pulsing circle,
+    and a HUD overlay in the top corner. This separation ensures that sound, visual,
+    and data layers never distract from eachother or the UX. Users see their geolocation,
+    BPM, and mode clearly presented, while all interactive input take place directly
+    on the visualiser.
+  </p>
+
+  <h3>Mapping</h3>
+  <p>
+    Each input maps transparently to an output: day/night → mode (light/dark);
+    longitude → tempo (BPM); drag X → pitch; drag Y → density. These mappings
+    are both functional and aesthetic, using environmental and embodied data to
+    reinforce novel input. The data is shown live in the HUD
+    so users can understand how their environment shape the system.
+  </p>
+
+  <h3>Feedback</h3>
+  <p>
+    Feedback is both auditory and visual. The kick drum and synth loops give
+    constant rhythm, while the circle pulses with the beat for
+    visual confirmation. The HUD readout provides immediate textual feedback on BPM,
+    mode, and location data, essentially closing the 'loop' between user input and system
+    response.
+  </p>
+
+  <h3>Characterisation</h3>
+  <p>
+    The system itself is characterised as playful and responsive; more like a
+     instrumental extention rather than a passive visualiser. It has a relatively simple identity: rhythmic, pulsing, and reactive, with mood
+    shifting between bright and dark depending on the user’s real-world data.
+    This characterisation is important for making the interaction feel alive and tangible
+    rather than mechanical and automated.
+  </p>
+
+  <p><strong>Design references:</strong><br></p>
+
          – <a href="http://www.patatap.com" target="_blank">Patatap</a><br>
          – <a href="https://www.newrafael.com/" target="_blank">Rafael Rozendaal</a></p>
     </section>
@@ -254,9 +303,54 @@
     </section>
 
      <section>
-      <h2>Response to feedback</h2>
-      <p> *placeholder* </p>
-      
+      <section class="card">
+  <h2>Feedback Summary</h2>
+
+  <h3>Clarity of location mapping</h3>
+  <p>
+    From testing, I found that many users enjoyed the sound and visuals, but struggled 
+    to understand exactly what the location data was doing. Because testing occurred in only 
+    one physical location, the effect of latitude/longitude on tempo and mode was not obvious. 
+    Several people mentioned they were unsure if “location” referred to their physical device 
+    or their drag input.
+  </p>
+
+  <h3>Engagement of audiovisual interaction</h3>
+  <p>
+    Almost all peers described the sound as “engaging,” “fun,” or “cool,” noting that the 
+     kick and pulsing circle made the system feel dynamic. Suggestions included more 
+    colour variation or even additional melodic elements.
+  </p>
+
+  <h2>Response to Feedback</h2>
+  <p>
+    To address the first issue, I revised the way location data influences the system. 
+    Originally, latitude controlled bright/dark mood, but this mapping felt abstract and 
+    was not legible for testing in one place. Following testing, I shifted to using the 
+    free Open-Meteo API’s day/night data to control light/dark modes. This makes the link 
+    between environment and audiovisual output much more direct: if it is day at the user’s 
+    current location, the visualiser runs in light mode; if it is night, it runs in dark mode. 
+    The HUD now explicitly displays this state, so users can easily see how their environment 
+    is being mapped.
+  </p>
+  <p>
+    On engagement, I kept the strong rhythmic foundation that users enjoyed, while leaving room 
+    for future extensions by AT3 submission. The circle continues to pulse in sync with the beat, 
+    but modes are now controlled by the day/night data, enhancing visual variation and hopefully user 
+    engagement. A BPM tracker was also added to the HUD to make tempo changes clearer. While I didn't 
+     add a second instrument at this stage (to avoid overworking myself or leaving it 
+    scrappy by Friday’s submission), the reflection process has definetly highlighted it as a potential 
+    addition for AT3’s outcome.
+  </p>
+
+  <h2>Summary</h2>
+  <p>
+    Peer testing confirmed the prototype was already engaging, but confirmed that the clarity of 
+    location input to output mapping needed refinement. By tying the light/dark modes directly to real-world 
+    day/night data at the user’s location, the project now has a more intuitive and defined 
+    relationship between environment and audiovisual output.
+  </p>
+</section>
     </section>
 
 
